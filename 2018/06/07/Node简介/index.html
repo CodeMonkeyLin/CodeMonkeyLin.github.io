@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="Node.js是什么?Node.js 是一种建立在Google Chrome’s v8 engine上的 non-blocking (非阻塞）, event-driven （基于事件的） I/O平台. Node.js平台使用的开发语言是JavaScript，平台提供了操作系统低层的API，方便做服务器端编程，具体包括文件操作、进程操作、通信操作等系统模块 Node.js可以用来做什么？ WebSo">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-06-08T04:05:15.846Z">
+<meta property="og:updated_time" content="2018-06-08T04:10:59.396Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NodeJS简介及使用">
 <meta name="twitter:description" content="Node.js是什么?Node.js 是一种建立在Google Chrome’s v8 engine上的 non-blocking (非阻塞）, event-driven （基于事件的） I/O平台. Node.js平台使用的开发语言是JavaScript，平台提供了操作系统低层的API，方便做服务器端编程，具体包括文件操作、进程操作、通信操作等系统模块 Node.js可以用来做什么？ WebSo">
@@ -190,28 +190,23 @@
 <li>常用API基本使用</li>
 </ul>
 <h2 id="图书管理系统构建"><a href="#图书管理系统构建" class="headerlink" title="图书管理系统构建"></a>图书管理系统构建</h2><ul>
-<li><p>开启服务器<br>  const express = require(‘express’);<br>  const app = express();<br>  // 监听端口<br>  app.listen(3000,()=&gt;{</p>
-<pre><code>console.log(&apos;running...&apos;);
-</code></pre><p>  });</p>
+<li><p>开启服务器</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const express = require(<span class="string">'express'</span>);</span><br><span class="line">const app = express();</span><br><span class="line">// 监听端口</span><br><span class="line">app.listen(3000,()=&gt;&#123;</span><br><span class="line">    console.log(<span class="string">'running...'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>启动静态资源服务<br>  app.use(‘/www’,express.static(‘public’));</p>
+<li><p>启动静态资源服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.use(<span class="string">'/www'</span>,express.static(<span class="string">'public'</span>));</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>使art-template模板引擎<br>  const template = require(‘art-template’);<br>  // 设置模板引擎<br>  app.set(‘view engine’,’art’);<br>  // 使express兼容art-template模板引擎<br>  app.engine(‘art’, require(‘express-art-template’));</p>
+<li><p>使art-template模板引擎</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const template = require(<span class="string">'art-template'</span>);</span><br><span class="line">// 设置模板引擎</span><br><span class="line">app.set(<span class="string">'view engine'</span>,<span class="string">'art'</span>);</span><br><span class="line">// 使express兼容art-template模板引擎</span><br><span class="line">app.engine(<span class="string">'art'</span>, require(<span class="string">'express-art-template'</span>));</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>处理post请求<br>  const bodyParser = require(‘body-parser’);<br>  // 处理请求参数<br>  // 挂载参数处理中间件（post）<br>  app.use(bodyParser.urlencoded({ extended: false }));<br>  // 处理json格式的参数<br>  app.use(bodyParser.json());</p>
+<li><p>处理post请求</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const bodyParser = require(<span class="string">'body-parser'</span>);</span><br><span class="line">// 处理请求参数</span><br><span class="line">// 挂载参数处理中间件（post）</span><br><span class="line">app.use(bodyParser.urlencoded(&#123; extended: <span class="literal">false</span> &#125;));</span><br><span class="line">// 处理json格式的参数</span><br><span class="line">app.use(bodyParser.json());</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>连接数据库<br>  const mysql = require(‘mysql’);<br>  // 创建数据库连接<br>  const connection = mysql.createConnection({</p>
-<pre><code>host: &apos;localhost&apos;, // 数据库所在的服务器的域名或者IP地址
-user: &apos;root&apos;, // 登录数据库的账号
-password: &apos;123456&apos;, // 登录数据库的密码
-database: &apos;letao&apos; // 数据库名称
-</code></pre><p>  });<br>  // 执行连接操作<br>  connection.connect();</p>
-<p>  // 操作数据库(数据库操作也是异步的)<br>  connection.query(sql,data, function(error, results, fields) {</p>
-<pre><code>if (error) throw error;
-callback(results);
-</code></pre><p>  });<br>  // 关闭数据库<br>  connection.end();</p>
+<li><p>连接数据库</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">const mysql = require(<span class="string">'mysql'</span>);</span><br><span class="line">// 创建数据库连接</span><br><span class="line">const connection = mysql.createConnection(&#123;</span><br><span class="line">    host: <span class="string">'localhost'</span>, // 数据库所在的服务器的域名或者IP地址</span><br><span class="line">    user: <span class="string">'root'</span>, // 登录数据库的账号</span><br><span class="line">    password: <span class="string">'123456'</span>, // 登录数据库的密码</span><br><span class="line">    database: <span class="string">'letao'</span> // 数据库名称</span><br><span class="line">&#125;);</span><br><span class="line">// 执行连接操作</span><br><span class="line">connection.connect();</span><br><span class="line"></span><br><span class="line">// 操作数据库(数据库操作也是异步的)</span><br><span class="line">connection.query(sql,data, <span class="keyword">function</span>(error, results, fields) &#123;</span><br><span class="line">    <span class="keyword">if</span> (error) throw error;</span><br><span class="line">    callback(results);</span><br><span class="line">&#125;);</span><br><span class="line">// 关闭数据库</span><br><span class="line">connection.end();</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>数据接口输出<br>  res.send,res.json,res.jsonp都可以进行数据输出<br>  这里采用res.render配合模板引擎进行数据渲染，如 res.render(‘index’,{list : result});<br>  //第一个参数为路由地址，第二个参数为渲染的数据</p>
+<li><p>数据接口输出</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">res.send,res.json,res.jsonp都可以进行数据输出</span><br><span class="line">这里采用res.render配合模板引擎进行数据渲染，如 res.render(<span class="string">'index'</span>,&#123;list : result&#125;);</span><br><span class="line">//第一个参数为路由地址，第二个参数为渲染的数据</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 
@@ -305,6 +300,16 @@ callback(results);
 </article>
 
   
+<nav id="article-nav">
+  
+  
+    <a href="/2018/04/02/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hello World</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
