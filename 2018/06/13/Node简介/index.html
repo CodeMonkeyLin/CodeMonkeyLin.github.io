@@ -9,13 +9,14 @@
   <title>NodeJS简介及使用 | </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Node.js是什么?Node.js 是一种建立在Google Chrome’s v8 engine上的 non-blocking (非阻塞）, event-driven （基于事件的） I/O平台. Node.js平台使用的开发语言是JavaScript，平台提供了操作系统低层的API，方便做服务器端编程，具体包括文件操作、进程操作、通信操作等系统模块 Node.js可以用来做什么？ expre">
+<meta name="keywords" content="nodejs,express">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NodeJS简介及使用">
 <meta property="og:url" content="http://yoursite.com/2018/06/13/Node简介/index.html">
 <meta property="og:site_name">
 <meta property="og:description" content="Node.js是什么?Node.js 是一种建立在Google Chrome’s v8 engine上的 non-blocking (非阻塞）, event-driven （基于事件的） I/O平台. Node.js平台使用的开发语言是JavaScript，平台提供了操作系统低层的API，方便做服务器端编程，具体包括文件操作、进程操作、通信操作等系统模块 Node.js可以用来做什么？ expre">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-06-13T09:13:35.660Z">
+<meta property="og:updated_time" content="2018-06-27T05:07:23.197Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NodeJS简介及使用">
 <meta name="twitter:description" content="Node.js是什么?Node.js 是一种建立在Google Chrome’s v8 engine上的 non-blocking (非阻塞）, event-driven （基于事件的） I/O平台. Node.js平台使用的开发语言是JavaScript，平台提供了操作系统低层的API，方便做服务器端编程，具体包括文件操作、进程操作、通信操作等系统模块 Node.js可以用来做什么？ expre">
@@ -167,8 +168,13 @@
 
         
         <a href="/2018/06/13/Node简介/" class="archive-article-date">
-  	<time datetime="2018-06-13T09:13:35.660Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-13</time>
+  	<time datetime="2018-06-13T09:29:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-13</time>
 </a>
+        
+        
+            <span class="archive-article-date">
+                阅读量 <span id="busuanzi_value_page_pv"></span>
+            </span>
         
       </header>
     
@@ -250,6 +256,21 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">nodejs</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">express</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -314,15 +335,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/06/13/git工作流/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          git工作流
-        
-      </div>
-    </a>
   
+    <a href="/2018/06/13/git工作流/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">git工作流</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -345,21 +362,32 @@
 
 
 
-  
-  
-  
+    <section id="comments">
+        <!--高速版，加载速度快，使用前需测试页面的兼容性-->
+        <div id="SOHUCS" sid="NodeJS简介及使用" style="padding: 0px 30px 0px 46px;"></div>
 
-  
-
-  
-
-  
+        <script>
+            (function(){
+            var appid = 'cytGAW8oS',
+            conf = '286c95e81a221e7e464bffadc5b597c6';
+            var doc = document,
+            s = doc.createElement('script'),
+            h = doc.getElementsByTagName('head')[0] || doc.head || doc.documentElement;
+            s.type = 'text/javascript';
+            s.charset = 'utf-8';
+            s.src =  'http://assets.changyan.sohu.com/upload/changyan.js?conf='+ conf +'&appid=' + appid;
+            h.insertBefore(s,h.firstChild);
+            window.SCS_NO_IFRAME = true;
+            })()
+        </script>
+    </section>
 
 
           </div>
         </div>
       </div>
-      <footer id="footer">
+      <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<footer id="footer">
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
@@ -370,6 +398,9 @@
       	</div>
     </div>
   </div>
+  <span id="busuanzi_container_site_pv"> 
+    本站访客数<span id="busuanzi_value_site_pv"></span>人次
+  </span>
 </footer>
     </div>
     <script>
@@ -444,6 +475,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">express</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">fork</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
