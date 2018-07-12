@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>从零搭建react+antd项目 | </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="#软件环境    软件环境建议选择vscode https://code.visualstudio.com/Download/-- #搭建node环境 - windows环境与mac环境直接进入 &amp;lt;https://nodejs.org/en//--&amp;gt; 进行下载 #搭建react环境    create-react-app 是业界最优秀的 React 应用开发工具之一，本文会尝试在 cr">
+  <meta name="description" content="软件环境软件环境建议选择vscode &amp;lt;https://code.visualstudio.com/Download/--&amp;gt; 搭建node环境 windows环境与mac环境直接进入 https://nodejs.org/en//-- 进行下载  搭建react环境create-react-app 是业界最优秀的 React 应用开发工具之一，本文会尝试在 create-react-a">
 <meta name="keywords" content="react,antd">
 <meta property="og:type" content="article">
 <meta property="og:title" content="从零搭建react+antd项目">
 <meta property="og:url" content="http://yoursite.com/2018/07/12/从零搭建react+antd项目/index.html">
 <meta property="og:site_name">
-<meta property="og:description" content="#软件环境    软件环境建议选择vscode https://code.visualstudio.com/Download/-- #搭建node环境 - windows环境与mac环境直接进入 &amp;lt;https://nodejs.org/en//--&amp;gt; 进行下载 #搭建react环境    create-react-app 是业界最优秀的 React 应用开发工具之一，本文会尝试在 cr">
+<meta property="og:description" content="软件环境软件环境建议选择vscode &amp;lt;https://code.visualstudio.com/Download/--&amp;gt; 搭建node环境 windows环境与mac环境直接进入 https://nodejs.org/en//-- 进行下载  搭建react环境create-react-app 是业界最优秀的 React 应用开发工具之一，本文会尝试在 create-react-a">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-12T08:01:35.217Z">
+<meta property="og:updated_time" content="2018-07-12T08:26:47.196Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从零搭建react+antd项目">
-<meta name="twitter:description" content="#软件环境    软件环境建议选择vscode https://code.visualstudio.com/Download/-- #搭建node环境 - windows环境与mac环境直接进入 &amp;lt;https://nodejs.org/en//--&amp;gt; 进行下载 #搭建react环境    create-react-app 是业界最优秀的 React 应用开发工具之一，本文会尝试在 cr">
+<meta name="twitter:description" content="软件环境软件环境建议选择vscode &amp;lt;https://code.visualstudio.com/Download/--&amp;gt; 搭建node环境 windows环境与mac环境直接进入 https://nodejs.org/en//-- 进行下载  搭建react环境create-react-app 是业界最优秀的 React 应用开发工具之一，本文会尝试在 create-react-a">
   
     <link rel="alternative" href="/atom.xml" title="" type="application/atom+xml">
   
@@ -180,22 +180,27 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#软件环境<br>    软件环境建议选择vscode <a href="https://code.visualstudio.com/Download/--" target="_blank" rel="noopener">https://code.visualstudio.com/Download/--</a></p>
-<p>#搭建node环境</p>
-<pre><code>- windows环境与mac环境直接进入 &lt;https://nodejs.org/en//--&gt; 进行下载
-</code></pre><p>#搭建react环境<br>    create-react-app 是业界最优秀的 React 应用开发工具之一，本文会尝试在 create-react-app 创建的工程中使用 antd 组件，并自定义 webpack 的配置以满足各类工程化需求。</p>
-<pre><code>- 安装和初始化
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g create-react-app</span><br></pre></td></tr></table></figure>
+        <h1 id="软件环境"><a href="#软件环境" class="headerlink" title="软件环境"></a>软件环境</h1><pre><code>软件环境建议选择vscode &lt;https://code.visualstudio.com/Download/--&gt;
+</code></pre><h1 id="搭建node环境"><a href="#搭建node环境" class="headerlink" title="搭建node环境"></a>搭建node环境</h1><ul>
+<li>windows环境与mac环境直接进入 <a href="https://nodejs.org/en//--" target="_blank" rel="noopener">https://nodejs.org/en//--</a> 进行下载</li>
+</ul>
+<h1 id="搭建react环境"><a href="#搭建react环境" class="headerlink" title="搭建react环境"></a>搭建react环境</h1><pre><code>create-react-app 是业界最优秀的 React 应用开发工具之一，本文会尝试在 create-react-app 创建的工程中使用 antd 组件，并自定义 webpack 的配置以满足各类工程化需求。
+</code></pre><ul>
+<li><p>安装和初始化</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g create-react-app</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>新建一个项目</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create-react-app antd-demo</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>进入项目并运行</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> antd-demo</span><br><span class="line">npm i</span><br><span class="line">npm start</span><br></pre></td></tr></table></figure>
+<p>  此时访问&lt; <a href="http://localhost:3000/--&gt;看到" target="_blank" rel="noopener">http://localhost:3000/--&gt;看到</a> Welcome to React 的界面就算成功了。</p>
+</li>
+</ul>
+<h1 id="引入antd"><a href="#引入antd" class="headerlink" title="引入antd"></a>引入antd</h1><pre><code>这是 create-react-app 生成的默认目录结构。
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">├── README.md</span><br><span class="line">├── package.json</span><br><span class="line">├── public</span><br><span class="line">│   ├── favicon.ico</span><br><span class="line">│   └── index.html</span><br><span class="line">├── src</span><br><span class="line">│   ├── App.css</span><br><span class="line">│   ├── App.js</span><br><span class="line">│   ├── App.test.js</span><br><span class="line">│   ├── index.css</span><br><span class="line">│   ├── index.js</span><br><span class="line">│   └── logo.svg</span><br><span class="line">└── yarn.lock</span><br></pre></td></tr></table></figure>
 
-- 新建一个项目
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create-react-app antd-demo</span><br></pre></td></tr></table></figure>
-
-- 进入项目并运行
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> antd-demo</span><br><span class="line">npm i</span><br><span class="line">npm start</span><br></pre></td></tr></table></figure>
-
-此时访问&lt; http://localhost:3000/--&gt;看到 Welcome to React 的界面就算成功了。
-</code></pre><p>#引入antd<br>    这是 create-react-app 生成的默认目录结构。<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">├── README.md</span><br><span class="line">├── package.json</span><br><span class="line">├── public</span><br><span class="line">│   ├── favicon.ico</span><br><span class="line">│   └── index.html</span><br><span class="line">├── src</span><br><span class="line">│   ├── App.css</span><br><span class="line">│   ├── App.js</span><br><span class="line">│   ├── App.test.js</span><br><span class="line">│   ├── index.css</span><br><span class="line">│   ├── index.js</span><br><span class="line">│   └── logo.svg</span><br><span class="line">└── yarn.lock</span><br></pre></td></tr></table></figure></p>
-<pre><code>现在npm 安装并引入 antd
+现在npm 安装并引入 antd
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i antd --save</span><br></pre></td></tr></table></figure>
 
 修改 src/App.js,引入antd的按钮控件
