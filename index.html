@@ -152,6 +152,97 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-移动前端rem适配方法总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/16/移动前端rem适配方法总结/">通过rem实现手机适配的三种方式</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/16/移动前端rem适配方法总结/" class="archive-article-date">
+  	<time datetime="2018-07-16T01:10:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-16</time>
+</a>
+        
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="rem的概念"><a href="#rem的概念" class="headerlink" title="rem的概念"></a>rem的概念</h2><ul>
+<li>root em,就是相对于根目录的em而不是相对于父元素,也就是说,它虽然是绝对值,但是只是相对于根目录来说也就是html,它不会随着其它元素的改变而改变.也就是说,我们只要设定html的文字大小就可以了.而不用考虑其它因素.</li>
+</ul>
+<h2 id="rem使用"><a href="#rem使用" class="headerlink" title="rem使用"></a>rem使用</h2><ul>
+<li>移动端适配屏幕必须在meta标签加上<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"</span> /&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="通过媒体查询实现rem布局"><a href="#通过媒体查询实现rem布局" class="headerlink" title="通过媒体查询实现rem布局"></a>通过媒体查询实现rem布局</h3><ul>
+<li>首先举个例子，来研究一下某东的代码</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">/*通过媒体查询适配 京东解决方案 兼容性IE9及以上 谷歌13*/</span><br><span class="line">@media only screen and (min-width:320PX) and (max-width:360PX)&#123;</span><br><span class="line">	html&#123;font-size:13.65px&#125;</span><br><span class="line">&#125;</span><br><span class="line">@media only screen and (min-width:360PX) and (max-width:375PX)&#123;</span><br><span class="line">	html&#123;font-size:15.36px&#125;</span><br><span class="line">&#125;</span><br><span class="line">@media only screen and (min-width:375PX) and (max-width:390PX)&#123;</span><br><span class="line">    html&#123;font-size:16px&#125;</span><br><span class="line">&#125;</span><br><span class="line">@media only screen and (min-width:390PX) and (max-width:414PX)&#123;</span><br><span class="line">	html&#123;font-size:16.64px&#125;</span><br><span class="line">&#125;</span><br><span class="line">@media only screen and (min-width:414PX) and (max-width:640PX)&#123;</span><br><span class="line">	html&#123;font-size:17.664px&#125;</span><br><span class="line">&#125;</span><br><span class="line">@media screen and (min-width:640PX)&#123;</span><br><span class="line">	html&#123;font-size:27.31px&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>分析上面代码可以看到是通过媒体查询进行rem适应，但是此时会存在一个问题，它并不是完美适配所有屏幕，例如在375px-390px区间rem大小都是一样，这肯定不是我们想要的。那么有什么办法可以实现全部的适配，接下我们看另一段代码。</li>
+</ul>
+<h3 id="通过js进行rem布局"><a href="#通过js进行rem布局" class="headerlink" title="通过js进行rem布局"></a>通过js进行rem布局</h3><ul>
+<li>通过js屏幕查询 适配所有屏幕（类似某宝解决方案）<br>$(window).on(“resize”,function(){<br>  $(“html”).css(“font-size”,100*window.innerWidth/640)<br>}).trigger(“resize”)</li>
+<li>分析一下上面的代码，这里引用了jq，也可以用原生js进行书写，代码大概意思是假设设计图纸为640px，我们可以将1rem设为100px，也就是说在640的屏幕下1rem=100px；320屏幕下1rem=50px；从而达到所有屏幕终端的适配，当然这里最好限制下屏幕的大小比如大于640px屏幕统一按640px屏幕的rem大小进行计算。</li>
+<li>这个是最优的解决方案么？这里我们需要思考一个问题，js文件执行速度肯定相对css是比较弱的，你可以不断刷新屏幕发现在开始的一瞬间会有短暂的页面布局错乱，这是因为css执行的比js快的缘故。所以接下来就有了方案三</li>
+</ul>
+<h3 id="通过vw进行rem布局"><a href="#通过vw进行rem布局" class="headerlink" title="通过vw进行rem布局"></a>通过vw进行rem布局</h3><h4 id="首先讲下vw概念"><a href="#首先讲下vw概念" class="headerlink" title="首先讲下vw概念"></a>首先讲下vw概念</h4><ul>
+<li><p>vw  1vw 等于视口宽度的1%</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">html&#123;</span><br><span class="line">	/* 通过100vw = 屏幕的宽度 适配所有屏幕 我的解决方案 兼容性IE9+ 谷歌26*/</span><br><span class="line">	font-size: 15.625vw;			</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>上面代码的意思可以看成100/640 = x/100;得出x=15.625，也就是说假设设计图640px图纸在640px屏幕下1rem=100px；上面的问题也就都解决了，当然这个兼容性相对之前会低一点，但是考虑手机兼容这一块都比较ok，所以这个也能满足我们的业务需求。</p>
+</li>
+<li><p>该案例的demo可打开链接<a href="https://github.com/CodeMonkeyLin/Adaptive-screen-solution" target="_blank" rel="noopener">https://github.com/CodeMonkeyLin/Adaptive-screen-solution</a></p>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/16/移动前端rem适配方法总结/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-从零搭建react+antd项目" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -571,6 +662,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">antd</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
               </li>
              
@@ -584,14 +683,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">fork</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">antd</a>
               </li>
             
             <div class="clearfix"></div>
